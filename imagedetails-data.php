@@ -2667,4 +2667,4 @@ array (
       'SourceURL' => 'https://www.flickr.com/photos/randyconnolly/48833486122',
       'Colors' => '[ "#534B40", "#B7B59E", "#6A706B", "#6D98BA", "#0A79B2" ] ',
     ),
-  )
+  );
