@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-wrapper blue">
+    <div class="nav-wrapper black">
         <a href="#!" class="brand-logo center"><img src="https://res.cloudinary.com/taylor-amy/image/upload/v1636390496/Web%202%20asg%202/logo.png" alt="logo" class="logo"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
@@ -8,9 +8,9 @@
             $url= $_SERVER['REQUEST_URI'];    
             if (strpos($url, 'about') !== false) {
                 echo '<li><a href="/">Home</a></li>';
-                echo '<li class="active"><a href="/about.php">About</a></li>';
+                echo '<li class="active blue"><a href="/about.php">About</a></li>';
             } else {
-                echo '<li class="active"><a href="/" >Home</a></li>';
+                echo '<li class="active blue"><a href="/" >Home</a></li>';
                 echo '<li><a href="/about.php">About</a></li>';
             }  
 
