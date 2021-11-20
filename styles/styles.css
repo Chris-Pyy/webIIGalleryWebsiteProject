@@ -4,14 +4,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-
 }
 
 .main {
     height: 95vh;
 }
 
+.gallery > * {
+    padding-bottom: 25px;
+}
 
 .control-container {
     text-align: center;
@@ -39,10 +40,6 @@
     display: none;
 }
 
-
-
-
-
   
 /* adapted from https://codepen.io/rkchauhan/pen/NNKgJY */
 
@@ -66,5 +63,5 @@
 
     }
     
-    
   }
+  
