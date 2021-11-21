@@ -1,8 +1,20 @@
 <?php 
 // if the id parameter is not present in the url, redirect to the error page
-if (!isset($_GET['id'])) {
-    header('Location: error.php');
+include 'findCityOrCountry.php';
+include 'city-details.php';
+
+
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];    
+    $index = findCityOrCountry($id, false);    
+    if ($index == -1) {
+        // header("Location: error.php");
+    }
+    $city = new CityDetails($index);   
+
 }
+
 
 ?>
 
@@ -21,6 +33,93 @@ if (!isset($_GET['id'])) {
 </head>
 <body>
     <?php include 'navbar.inc.php'; ?>
+    <div class='row'>
+        <div class="col s12 m12 l3 column center-align card-panel z-depth-5 main">
+            <div class="row s1 card-panel grey lighten-4 z-depth-1 hoverable">
+                <p>filters</p>
+            </div>
+                <p>filter list</p>
+        </div>
+        <div class="col s12 m12 l6 column center-align card-panel main">
+            <div class="row s1 card-panel">
+                <div class="section">
+                    <?= ($city->getCityDetails());?>
+                </div>
+            </div>
+            <div class="row s1 card-panel">
+                <h1>map or list</h1>
+            </div>
+        </div>
+        <div class="col s12 m12 l3 column center-align card-panel main">
+            <h1>photos</h1>
+            <div class="row gallery">
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+                <div class="card col s3 hoverable">
+                    <div class="card-image">
+                        <img src="https://via.placeholder.com/175">
+                    </div>
+                    <div class="card-content">
+                        content
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
 </body>
 </html>
