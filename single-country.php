@@ -93,7 +93,6 @@ if (isset($_GET['iso'])) {
             <div class="row s1 card-panel" style="overflow: auto; height: 40vh;">
                 <p class="center-align">Country list</p>
                 <div class="row countryList center-align">
-                    <form action="single-country.php" method="get"></form>
                 </div>
             </div>
                 
@@ -116,7 +115,7 @@ if (isset($_GET['iso'])) {
                 {
                     foreach ($country->getCityList() as $city) 
                     {
-                        echo '<a class="row s1" href=single-city.php?iso="' . $cities[$city]['CountryCodeISO'] . '" id="' . $cities[$city]['CountryCodeISO'] . '">'
+                        echo '<a class="row s1" href=single-city.php?id=' . $cities[$city]['CityCode'] . ' id="' . $cities[$city]['CityCode'] . '">'
                         . $cities[$city]['AsciiName'] . '</a>';
                     }
                 }
