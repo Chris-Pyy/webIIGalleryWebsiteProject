@@ -16,5 +16,5 @@ function findArrayElement($key, $arr, $identifier) {
 
     return $index;
 
-}
 
+}
