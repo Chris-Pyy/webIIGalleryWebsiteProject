@@ -25,7 +25,7 @@
                 <span class="label">Search for photos</span>
                 <span class="highlight"></span>
                 <div class="search-btn">
-                <i class="fa fa-search icon"></i>
+                    <i class="fa fa-search icon"></i>
                 </div>
             </div>
         </div>
