@@ -1,17 +1,25 @@
 <?php 
 // if the id parameter is not present in the url, redirect to the error page
-include 'findCityOrCountry.php';
+include 'cities-data.php';
+include 'languages-data.php';
+include 'countries-data.php';
+include 'imagedetails-data.php';
+
+include 'findArrayElement.php';
 include 'city-details.php';
+include 'image-thumbnail.php';
 
 
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];    
-    $index = findCityOrCountry($id, false);    
-    if ($index == -1) {
-        // header("Location: error.php");
+    $index = findArrayElement($id, $cities, 'CityCode');    
+    if (empty($index)) {
+        header("Location: error.php");
     }
-    $city = new CityDetails($index);   
+    $city = new CityDetails($index[0]);   
+    
+   
 
 }
 
@@ -25,6 +33,7 @@ if (isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -53,70 +62,14 @@ if (isset($_GET['id'])) {
         <div class="col s12 m12 l3 column center-align card-panel main">
             <h1>photos</h1>
             <div class="row gallery">
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
-                <div class="card col s3 hoverable">
-                    <div class="card-image">
-                        <img src="https://via.placeholder.com/175">
-                    </div>
-                    <div class="card-content">
-                        content
-                    </div>
-                </div>
+               
+            <?php 
+                foreach ($city->getImageList() as $image) {
+                    $image2 = new ImageThumbnail($images[$image]);
+                    echo $image2->createElement();
+                }
+            ?>
+                
             </div>
         </div>
 

@@ -3,6 +3,7 @@
 
 
 class CityDetails {
+    private $cityCode;
     private $asciiName;
     private $countryCode;
     private $latitude;
@@ -11,10 +12,12 @@ class CityDetails {
     private $elevation;
     private $timezone;
 
+    private $imageList;
+
     public function __construct($index) {
         global $cities;
         $city = $cities[$index];
-
+        $this->cityCode = $city['CityCode'];
         $this->asciiName = $city['AsciiName'];
         $this->countryCode = $city['CountryCodeISO'];
         $this->latitude = $city['Latitude'];
@@ -23,12 +26,23 @@ class CityDetails {
         $this->elevation = $city['Elevation'];
         $this->timezone = $city['TimeZone'];
 
+        $this->populateImages();
 
+    }
+
+    private function populateImages() {
+        global $images;
+        $this->imageList = findArrayElement($this->cityCode, $images, 'CityCode');
+        
+    }
+
+    public function getImageList() {
+        return $this->imageList;
     }
 
     public function getCityDetails() {
         global $countries;
-        $country = $countries[findCityOrCountry($this->countryCode, true)];
+        $country = $countries[findArrayElement($this->countryCode, $countries, 'ISO')[0]];
 
         $cityDetails = '<h3>' . $this->asciiName . '</h3>'  .
             '<p>' .
