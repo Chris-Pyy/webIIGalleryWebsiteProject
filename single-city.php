@@ -1,13 +1,30 @@
-<?php 
-// if the id parameter is not present in the url, redirect to the error page
-if (!isset($_GET['id'])) {
-    header('Location: error.php');
+<?php
+include 'cities-data.php';
+include 'languages-data.php';
+include 'countries-data.php';
+include 'imagedetails-data.php';
+
+include 'findArrayElement.php';
+include 'city-details.php';
+include 'image-thumbnail.php';
+
+
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $index = findArrayElement($id, $cities, 'CityCode');
+    if (empty($index)) {
+        header("Location: error.php");
+    }
+    $city = new CityDetails($index[0]);
 }
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,11 +42,12 @@ if (!isset($_GET['id'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Cities</title>
 </head>
+
 <body>
     <?php include 'navbar.inc.php'; ?>
 
     <div class='row'>
-    <div class="col s12 m12 l3 column main">
+        <div class="col s12 m12 l3 column main">
             <div class="row s1 card-panel">
                 <p class="center-align">filters</p>
                 <div class="input-field col s12">
@@ -73,32 +91,42 @@ if (!isset($_GET['id'])) {
                 <div class="row countryList center-align">
                 </div>
             </div>
-                
+
         </div>
         <div class="col s12 m12 l6 column center-align card-panel main">
             <div class="row s1 card-panel">
                 <div class="section">
-                    <?= ($city->getCityDetails());?>
+                    <?= ($city->getCityDetails()); ?>
                 </div>
             </div>
             <div class="row s1 card-panel">
-                <h1>map or list</h1>
+                <?php
+                if (isset($_GET['id'])) {
+
+                    echo $city->generateMapElement();
+                }
+
+
+                ?>
             </div>
         </div>
         <div class="col s12 m12 l3 column center-align card-panel main">
             <h1>photos</h1>
             <div class="row gallery">
-               
-            <?php 
-                foreach ($city->getImageList() as $image) {
-                    $image2 = new ImageThumbnail($images[$image]);
-                    echo $image2->createElement();
-                }
-            ?>
-                
+
+                <?php 
+                    if (isset($_GET['id'])) {
+                        foreach ($city->getImageList() as $image) {
+                            $image2 = new ImageThumbnail($images[$image]);
+                            echo $image2->createElement();
+                        }
+                    }
+                ?>
+
             </div>
         </div>
 
 
 </body>
+
 </html>

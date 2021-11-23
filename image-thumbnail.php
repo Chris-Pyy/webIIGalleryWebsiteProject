@@ -19,7 +19,7 @@ class ImageThumbnail {
             $fontSize = '12';
         }
         if ($titleLength >= 34) {
-            $fontSize = '11.5';
+            $fontSize = '11';
         }
 
 
@@ -27,8 +27,9 @@ class ImageThumbnail {
         <div class="card-image">
         <img src="https://res.cloudinary.com/taylor-amy/image/upload/c_scale,h_75,w_75/v1633386733/web%202%20asg%201/'. $this->image['Path'] .'">
         </div>
-        <div class="card-content">
-        <p class="imageTitle" style="font-size: ' . $fontSize. 'px;">'. $this->image['Title'] .'</p>
+
+        <div class="card-action" >
+          <a href="/single-photo.php?id='. $this->image["ImageID"] .'" style="font-size: ' . $fontSize. 'px;">'.$this->image['Title'].'</a>
         </div>
         </div>';
     }
