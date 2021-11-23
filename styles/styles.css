@@ -4,14 +4,26 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-
 }
 
 .main {
     height: 95vh;
 }
+.card-action {
+    height: 75px;
+    /* padding: 6px 12px 12px 12px !important; */
+    padding: 0px !important;
+    text-align: left !important;
+    margin-right: 0;
+    text-transform: none !important;
+}
 
+.card-action a {
+
+    text-align: left !important;
+    margin-right: 0 !important;
+    text-transform: none !important;
+}
 
 .control-container {
     text-align: center;
@@ -39,10 +51,6 @@
     display: none;
 }
 
-
-
-
-
   
 /* adapted from https://codepen.io/rkchauhan/pen/NNKgJY */
 
@@ -66,5 +74,5 @@
 
     }
     
-    
   }
+  

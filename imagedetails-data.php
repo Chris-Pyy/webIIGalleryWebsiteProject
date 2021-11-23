@@ -1,6 +1,6 @@
 <?php
 
-
+$images =
 array (
     0 => 
     array (
