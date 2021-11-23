@@ -6,6 +6,8 @@
 
             <?php
             $url= $_SERVER['REQUEST_URI'];  
+
+            var_dump($url);
                 echo '<li '.(strlen($url) == 0 ? 'class="active blue"' : '').'><a href="/">Home</a></li>';
                 echo '<li '.(strpos($url, 'about.php') ? 'class="active blue"' : '') .'><a href="/about.php">About</a></li>';
                 echo '<li '.(strpos($url, 'single-country.php') ? 'class="active blue"' : '') .'><a href="/single-country.php">Country</a></li>';
