@@ -5,7 +5,7 @@ include 'languages-data.php';
 include 'countries-data.php';
 include 'imagedetails-data.php';
 include 'findArrayElement.php';
-include "photo-details.php";
+include 'photo-details.php';
 
 if (isset($_GET['id'])) {
     $queryString = true;
@@ -33,6 +33,7 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="javascript/tabLinks.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Photos</title>
 </head>
@@ -43,13 +44,38 @@ if (isset($_GET['id'])) {
 
     <div class="photo">
         <div class="thumbnail">
-            <img src="https://via.placeholder.com/450C/O" alt="">
+            <img src="https://via.placeholder.com/425C/O" alt="">
         </div>
         <div class="info">
-            <h2>Photo Title</h2>
+            <?php
+
+            ?>
+            <!-- <h2>Photo Title</h2> -->
             <h3>Username</h3>
-            <h3>Country, City</h3>
+            <h3><a href=''>Country</a>, <a href=''>City</a></h3>
             <button type="button">Add to favourites</button>
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'Description')">Description</button>
+                <button class="tablinks" onclick="openCity(event, 'Details')">Details</button>
+                <button class="tablinks" onclick="openCity(event, 'Maps')">Maps</button>
+            </div>
+
+            <!-- Tab content -->
+            <div id="Description" class="tabcontent">
+                <h3>Description</h3>
+                <p></p>
+            </div>
+
+            <div id="Details" class="tabcontent">
+                <h3>Details</h3>
+                <p></p>
+            </div>
+
+            <div id="Maps" class="tabcontent">
+                <h3>Maps</h3>
+                <p></p>
+            </div>
         </div>
     </div>
 </body>
