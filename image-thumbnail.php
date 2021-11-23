@@ -23,7 +23,7 @@ class ImageThumbnail {
         }
 
 
-        return '<div class="card col s3 hoverable">
+        return '<div class="card col s6 m6 l3 hoverable">
         <div class="card-image">
         <a href="/single-photo.php?id='. $this->image["ImageID"] .'">
         <picture>

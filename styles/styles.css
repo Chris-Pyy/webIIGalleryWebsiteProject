@@ -9,6 +9,10 @@
 .main {
     height: 95vh;
 }
+
+.details {
+    height: 300px !important;
+}
 .card-action {
     height: 75px;
     /* padding: 6px 12px 12px 12px !important; */

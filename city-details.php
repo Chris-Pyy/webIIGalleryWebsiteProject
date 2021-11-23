@@ -61,7 +61,7 @@ class CityDetails {
             $language = $this->getLanguage(substr($iso,0, 2));
             if ($language != null) {
               $languageNames .=  $language['name'] . ', ';
-            }
+            } 
     
         }
 
@@ -100,16 +100,28 @@ class CityDetails {
             $zoom = 6;
         }
 
+        $smallMapImg = 'https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
+        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
+        .$this->longitude.'&size=275x300&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI';
 
-        return '<picture>
-                    <source media="(max-width:425px)" 
-                        srcset="https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
-                            .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
-                            .$this->longitude.'&size=275x300&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI">
+        $mediumMapImg = 'https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
+        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
+        .$this->longitude.'&size=550x300&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI';
 
-                    <img src="https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
-                        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
-                        .$this->longitude.'&size=781x250&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI">
+        $largeMapImg = 'https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
+        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
+        .$this->longitude.'&size=900x300&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI';
+
+
+
+        return '<picture >
+
+                    <img 
+                    src='.$smallMapImg.'
+                    srcset="'. $smallMapImg .' 320w, '.$mediumMapImg.' 800w, '.$largeMapImg.' 1200w"
+                    sizes="80vw"
+                    >
+
                 </picture>';
     }
 

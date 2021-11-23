@@ -93,39 +93,42 @@ if (isset($_GET['id'])) {
             </div>
 
         </div>
-        
 
-        <div class="col s12 m12 l6 column center-align card-panel main">
-            <div class="row s1 card-panel">
-                <div class="section">
-                    <?= ($city->getCityDetails()); ?>
-                </div>
+
+        <div class="col s12 m12 l9 column center-align card-panel main">
+            <div class='col s12 m12 l4 column center-align card-panel details'>
+                    <div class="section">
+                        <?= ($city->getCityDetails()); ?>
+                    </div>
+            </div>
+            <div class='col s12 m12 l8 column center-align card-panel details'>
+                    <?php
+                    if (isset($_GET['id'])) {
+                        echo $city->generateMapElement();
+                    }
+                    ?>
             </div>
             <div class="row s1 card-panel">
-                <?php
-                if (isset($_GET['id'])) {
-                    echo $city->generateMapElement();
-                }
-                ?>
-            </div>
-        </div>
+                <div class="container">
 
-        <div class="col s12 m12 l3 column center-align card-panel main">
-            <h1>photos</h1>
-            <div class="row gallery">
-
-                <?php 
+                    <?php
                     if (isset($_GET['id'])) {
                         foreach ($city->getImageList() as $image) {
                             $image2 = new ImageThumbnail($images[$image]);
                             echo $image2->createElement();
                         }
                     }
-                ?>
-                
+                    ?>
+
+
+                </div>
 
             </div>
         </div>
+
+
+
+
 
 
 </body>
