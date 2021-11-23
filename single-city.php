@@ -35,6 +35,7 @@ if (isset($_GET['id'])) {
     <script src="javascript/countryFilters.js"></script>
     <script src="javascript/countryList.js"></script>
     <script src="javascript/images.js"></script>
+    <script src="javascript/navbar.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,9 +46,10 @@ if (isset($_GET['id'])) {
 
 <body>
     <?php include 'navbar.inc.php'; ?>
-
-    <div class='row'>
-        <div class="col s12 m12 l3 column main">
+    <div class="fixed-action-btn">
+        <button id="filterHamburgerBtn" class='btn-floating waves-effect waves-light btn-large blue signup col s12'>filters</button>
+    </div>
+    <div class="sidenav filters col s6 m9 l3 column main">
             <div class="row s1 card-panel">
                 <p class="center-align">filters</p>
                 <div class="input-field col s12">
@@ -86,31 +88,31 @@ if (isset($_GET['id'])) {
                     </label>
                 </div>
             </div>
-            <div class="row s1 card-panel" style="overflow: auto; height: 40vh;">
+            <div class="row s1 card-panel" style="overflow: auto; height: 45vh;">
                 <p class="center-align">Country list</p>
                 <div class="row countryList center-align">
                 </div>
             </div>
 
         </div>
+    <div class='row container'>
 
-
-        <div class="col s12 m12 l9 column center-align card-panel main">
-            <div class='col s12 m12 l4 column center-align card-panel details'>
+        <div class="col s12 m12 l12 column center-align">
+            <div class="col s12 m7 l7 card-panel" style="height: 60vh;">
                     <div class="section">
                         <?= ($city->getCityDetails()); ?>
                     </div>
             </div>
-            <div class='col s12 m12 l8 column center-align card-panel details'>
+            <div class="col s12 m5 l5 card-panel main" style="overflow: auto; height: 60vh;">
                     <?php
                     if (isset($_GET['id'])) {
                         echo $city->generateMapElement();
                     }
                     ?>
             </div>
-            <div class="row s1 card-panel">
-                <div class="container">
-
+            <div class="col s12 m12 l12 column center-align card-panel main">
+                <h4>photos</h4>
+                <div class="row gallery">
                     <?php
                     if (isset($_GET['id'])) {
                         foreach ($city->getImageList() as $image) {
