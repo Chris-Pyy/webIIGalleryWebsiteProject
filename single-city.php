@@ -1,28 +1,8 @@
 <?php 
 // if the id parameter is not present in the url, redirect to the error page
-include 'cities-data.php';
-include 'languages-data.php';
-include 'countries-data.php';
-include 'imagedetails-data.php';
-
-include 'findArrayElement.php';
-include 'city-details.php';
-include 'image-thumbnail.php';
-
-
-
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];    
-    $index = findArrayElement($id, $cities, 'CityCode');    
-    if (empty($index)) {
-        header("Location: error.php");
-    }
-    $city = new CityDetails($index[0]);   
-    
-   
-
+if (!isset($_GET['id'])) {
+    header('Location: error.php');
 }
-
 
 ?>
 
@@ -33,10 +13,12 @@ if (isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/navbar.css">
+
     <link rel="stylesheet" href="styles/styles.css">
     <script src="javascript/countryFilters.js"></script>
     <script src="javascript/countryList.js"></script>
     <script src="javascript/images.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,6 +27,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <?php include 'navbar.inc.php'; ?>
+
     <div class='row'>
     <div class="col s12 m12 l3 column main">
             <div class="row s1 card-panel">
@@ -116,6 +99,6 @@ if (isset($_GET['id'])) {
             </div>
         </div>
 
-    </div>
+
 </body>
 </html>
