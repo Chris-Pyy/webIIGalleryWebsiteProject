@@ -4,7 +4,7 @@
   }
   /* label focus color */
   .input-field input[type=text]:focus + label {
-    color: #2196f3 ;
+    color: #2196f3 !important;
   }
   /* label underline focus color */
   #icon_prefix2:focus  {
