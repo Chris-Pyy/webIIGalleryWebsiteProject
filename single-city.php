@@ -93,6 +93,7 @@ if (isset($_GET['id'])) {
             </div>
 
         </div>
+        
         <div class="col s12 m12 l6 column center-align card-panel main">
             <div class="row s1 card-panel">
                 <div class="section">
@@ -102,14 +103,12 @@ if (isset($_GET['id'])) {
             <div class="row s1 card-panel">
                 <?php
                 if (isset($_GET['id'])) {
-
                     echo $city->generateMapElement();
                 }
-
-
                 ?>
             </div>
         </div>
+
         <div class="col s12 m12 l3 column center-align card-panel main">
             <h1>photos</h1>
             <div class="row gallery">
@@ -122,6 +121,7 @@ if (isset($_GET['id'])) {
                         }
                     }
                 ?>
+                
 
             </div>
         </div>
