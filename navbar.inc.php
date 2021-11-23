@@ -5,15 +5,13 @@
         <ul class="left hide-on-med-and-down">
 
             <?php
-            $url= $_SERVER['REQUEST_URI'];    
-            if (strpos($url, 'about') !== false) {
-                echo '<li><a href="/">Home</a></li>';
-                echo '<li class="active blue"><a href="/about.php">About</a></li>';
-            } else {
-                echo '<li class="active blue"><a href="/" >Home</a></li>';
-                echo '<li><a href="/about.php">About</a></li>';
-            }  
+            $url= $_SERVER['REQUEST_URI'];  
 
+                echo '<li '.(strlen($url) == 1 ? 'class="active blue"' : '').'><a href="/">Home</a></li>';
+                echo '<li '.(strpos($url, 'about.php') ? 'class="active blue"' : '') .'><a href="/about.php">About</a></li>';
+                echo '<li '.(strpos($url, 'single-country.php') ? 'class="active blue"' : '') .'><a href="/single-country.php">Country</a></li>';
+                echo '<li '.(strpos($url, 'single-photo.php') ? 'class="active blue"' : '') .'><a href="/single-photo.php">Photo</a></li>';
+                echo '<li '.(strpos($url, 'registration.php') ? 'class="active blue"' : '') .'><a href="/registration.php">Registration</a></li>';
             ?>
 
       </ul>
@@ -22,22 +20,12 @@
         
 
 
-<!-- <nav>
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
-        </ul>
-    </div>
-</nav> -->
-
 <ul class="sidenav" id="mobile-demo">
     <li><a href="/">Home</a></li>
     <li><a href="/about.php">About</a></li>
+    <li><a href="/single-country.php">Country</a></li>
+    <li><a href="/single-photo.php">Photo</a></li>
+    <li><a href="/registration.php">Registration</a></li>
 
 </ul>
 

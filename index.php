@@ -25,6 +25,11 @@
         <div class='control-container'>
             <button class='waves-effect waves-light btn blue signup'>Sign Up</button>
             <button class='waves-effect waves-light btn blue login'>Login</button>
+            <div class="search input-field inline">
+                <i class="material-icons prefix">search</i>
+                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                <label for="icon_prefix2">Search for photos</label>
+          </div>
         </div>
     </div>
 
