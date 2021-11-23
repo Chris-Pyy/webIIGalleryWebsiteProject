@@ -102,9 +102,14 @@ class CityDetails {
 
 
         return '<picture>
+                    <source media="(max-width:425px)" 
+                        srcset="https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
+                            .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
+                            .$this->longitude.'&size=275x300&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI">
+
                     <img src="https://maps.googleapis.com/maps/api/staticmap?center='. $country['CountryName']
-                        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','.
-                        $this->longitude.'&size=781x250&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI">
+                        .',&amp;&zoom='. $zoom .'&amp;&markers=color:red%7C'.$this->latitude.','
+                        .$this->longitude.'&size=781x250&amp;key=AIzaSyDDkAYxD7mVGOcuF1KW7egAqoIf_ADroBI">
                 </picture>';
     }
 

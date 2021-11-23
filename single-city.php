@@ -94,6 +94,7 @@ if (isset($_GET['id'])) {
 
         </div>
         
+
         <div class="col s12 m12 l6 column center-align card-panel main">
             <div class="row s1 card-panel">
                 <div class="section">
