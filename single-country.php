@@ -50,8 +50,10 @@ if (isset($_GET['iso'])) {
 
 <body>
     <?php include 'navbar.inc.php'; ?>
-    <div class='row'>
-        <div class="col s12 m12 l3 column main">
+    <div class="fixed-action-btn">
+        <button id="filterHamburgerBtn" class='btn-floating waves-effect waves-light btn-large blue signup col s12'>filters</button>
+    </div>
+        <div class="sidenav filters col s6 m9 l3 column main">
             <div class="row s1 card-panel">
                 <p class="center-align">filters</p>
                 <div class="input-field col s12">
@@ -90,17 +92,16 @@ if (isset($_GET['iso'])) {
                     </label>
                 </div>
             </div>
-            <div class="row s1 card-panel" style="overflow: auto; height: 40vh;">
+            <div class="row s1 card-panel" style="overflow: auto; height: 45vh;">
                 <p class="center-align">Country list</p>
                 <div class="row countryList center-align">
                     <form action="single-country.php" method="get"></form>
                 </div>
             </div>
-                
         </div>
-        <div class="col s12 m12 l6 column center-align main">
-            <div class="row s1 card-panel">
-            <p class="center-align">Country details</p>
+    <div class='row container'>
+        <div class="col s12 m12 l12 column center-align">
+            <div class="col s7 card-panel" style="height: 60vh;">
                 <div class="section">
                     <?php
                         if ($queryString) 
@@ -110,20 +111,21 @@ if (isset($_GET['iso'])) {
                     ?>
                 </div>
             </div>
-            <div class="row s1 card-panel" style="overflow: auto; height: 40vh;">
+            <div class="col s5 card-panel main" style="overflow: auto; height: 60vh;">
+            <h5>City list</h5>
                 <?php 
                 if ($queryString) 
                 {
                     foreach ($country->getCityList() as $city) 
                     {
-                        echo '<a class="row s1" href=single-city.php?iso="' . $cities[$city]['CountryCodeISO'] . '" id="' . $cities[$city]['CountryCodeISO'] . '">'
+                        echo '<a class="row s1" href=single-city.php?id=' . $cities[$city]['CityCode'] . ' id="' . $cities[$city]['CityCode'] . '">'
                         . $cities[$city]['AsciiName'] . '</a>';
                     }
                 }
                 ?>
             </div>
         </div>
-        <div class="col s12 m12 l3 column center-align card-panel main">
+        <div class="col s12 m12 l12 column center-align card-panel main">
             <h4>photos</h4>
             <div class="row gallery">
                 <?php

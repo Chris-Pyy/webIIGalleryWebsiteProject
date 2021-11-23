@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         orderListByContinent(e);
     });
 
+    document.querySelector("#filterHamburgerBtn").addEventListener("click", (e) => {
+        var filters = document.querySelector('.filters');
+        var instance = M.Sidenav.getInstance(filters);
+        instance.open();
+    });
+
 });
 
 function orderListByInput(filterEvent) {
