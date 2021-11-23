@@ -1,7 +1,5 @@
 <?php
 
-use JetBrains\PhpStorm\Language;
-
 class CityDetails {
     private $cityCode;
     private $asciiName;
@@ -66,11 +64,6 @@ class CityDetails {
             }
     
         }
-
-        
-
-        
-
 
 
         $cityDetails = '<h3>' . $this->asciiName . '</h3>'  .
